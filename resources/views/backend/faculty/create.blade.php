@@ -125,10 +125,10 @@
                                                 <label>Designation <sup class="text-danger">* </sup> :</label>
                                             </div>
                                             <div class="col-md-9">
-                                                <input type="text" required name="designation" placeholder="Enter designation..."
-                                                    value="{{ old('designation') }}"
-                                                    class="form-control rounded-0 form-control-sm @error('designation') is-invalid @enderror">
-                                                @error('designation')
+                                                <input type="text" required name="desig" placeholder="Enter designation..."
+                                                    value="{{ old('desig') }}"
+                                                    class="form-control rounded-0 form-control-sm @error('desig') is-invalid @enderror">
+                                                @error('desig')
                                                     <div class="text-danger font-italic">
                                                         {{ $message }}
                                                     </div>
