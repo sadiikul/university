@@ -145,6 +145,19 @@ class FrontendController extends Controller
         return view('frontend.program_list', compact('program'));
     }
 
+    public function faculty()
+    {
+        $departments = Department::where(['status' => '1'])->paginate(15);
+        return view('frontend.faculty', compact('departments'));
+    }
+
+    public function departmentWiseFaculty(Department $department)
+    {
+        $faculty = Faculty::with('dept')->where(['status' => '1'])->where('dept_id', $department->id)->paginate(15);
+        // return $faculty;
+        return view('frontend.department-wise-faculty', compact('faculty'));
+    }
+
     public function tuition()
     {
         $program = ProgramCategory::where(['status' => 1])->with('list.fee')->orderBy('id', 'desc')->get();
@@ -315,11 +328,7 @@ class FrontendController extends Controller
         return view('frontend.about', compact('section', 'head'));
     }
 
-    public function faculty()
-    {
-        $faculty = Faculty::where(['status' => '1'])->with('dept')->paginate(15);
-        return view('frontend.faculty', compact('faculty'));
-    }
+
 
     public function alumni()
     {

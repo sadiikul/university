@@ -856,3 +856,5 @@ Route::prefix('user')->middleware('auth', 'user')->name('user.')->group(function
         return redirect()->back();
     })->name('cache');
 });
+
+Route::get('department/{department}/faculty', [FrontendController::class, 'departmentWiseFaculty'])->name('departmentWiseFaculty');
